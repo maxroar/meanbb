@@ -1,9 +1,9 @@
 
-var examples = require('../controllers/examples')
+var users = require('../controllers/users')
 
 function routes(app) {
 
-  app.get('/api/something', examples.something)
+  app.get('/api/login', users.login);
 
 }
 

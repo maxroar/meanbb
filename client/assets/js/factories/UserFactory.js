@@ -1,12 +1,12 @@
 
 angular.module('myApp')
-.factory('ExampleFactory', ['$http', function($http) {
+.factory('UserFactory', ['$http', function($http) {
 
-  var examples = []
+  var users = []
   var factory = {}
 
   factory.init = function(callback) {
-    callback(examples)
+    callback(users)
   }
 
   return factory

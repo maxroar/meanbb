@@ -3,8 +3,12 @@ angular.module('myApp', ['ngRoute'])
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'partials/partial1.html',
-      controller: 'ExamplesCtrl'
+      templateUrl: 'partials/login.html',
+      controller: 'UsersCtrl'
+    })
+    .when('/dashboard', {
+    	templateUrl: 'partials/dashboard.html',
+    	controller: 'DashboardCtrl'
     })
     .otherwise({
       redirectTo: '/'

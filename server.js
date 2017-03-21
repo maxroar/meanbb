@@ -1,5 +1,5 @@
 
-var PORT = process.env.PORT || 8000
+var PORT = process.env.PORT || 8001
 
 var express = require('express')
 var bodyParser = require('body-parser')
@@ -21,8 +21,7 @@ app.use(bodyParser.json())
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: true
 }))
 
 // load in routes

@@ -8,6 +8,7 @@ angular.module('myApp')
   $scope.loginUser = function(){
   	UserFactory.loginUser($scope.loginForm.username, function(data){
   		console.log(data);
+  		$location.url('/dashboard')
   	})
   	console.log($scope.loginForm)
   }

@@ -2,7 +2,7 @@
 angular.module('myApp')
 .factory('UserFactory', ['$http', function($http) {
 
-  var users = []
+  var user = {};
   var factory = {}
 
   factory.getUserSession = function(callback){
@@ -20,6 +20,11 @@ angular.module('myApp')
   factory.loginUser = function(loginForm, callback){
   	$http.post('/api/login', {username: loginForm})
   		.then(function(res){
+        var data = res.data;
+        if (data.success) {
+          user = data.user;
+          callback();
+        }
   			console.log(res, 'from factory');
 
   		})

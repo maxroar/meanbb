@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-xs-6 div col-xs-offset-3">
+		<h1>{{topic.title}}</h1>
+		<h4>{{topic.description}}</h4>
+		<h5>posted by: {{topic._user.username}}</h5>
+		<p>{{topic._id}}</p>
+		<div>
+			<form ng-submit="addAnswer()" class="well">
+				<input type="hidden" name="topicId" ng-model="answerForm.topicId" value="{{topic.id}}">
+				<textarea ng-model="answerForm.description" rows="4" placeholder="answer..."></textarea><br>
+				<input type="submit" value="Add Answer">
+			</form>
+		</div>
+		<div>
+			<ul ng-repeat="answer in topic._answers">
+				<li>{{answer._user.username}}: {{answer.text}}</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,8 +1,46 @@
-<h1>dashiki</h1>
 
 <div class="container">
-	<div class="col-xs-2 xol-xs-offset-10">
+	<div class="col-xs-2 col-xs-offset-10">
 		<a ng-click="logout()" class="btn btn-primary">Logout</a>
 	</div>
+	<div class="col-xs-6 col-xs-offset 3">
+		<h1>Welcome, {{user.username}}!</h1>
+	</div>
+	<div class="col-xs-8 col-xs-offset-2 well">
+		<input type="text" placeholder="search..." class="block">
+	</div>
+	<div class="col-xs-8 col-xs-offset-2">
+		<table>
+			<thead>
+				<th>Category</th>
+				<th>Topic</th>
+				<th>User Name</th>
+				<th>Answers</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="topic in topics">
+					<td>{{topic.category}}</td>
+					<td><a href="#!/topic/{{topic._id}}">{{topic.title}}</a></td>
+					<td>{{topic._user.username}}</td>
+					<td>{{topic._answers.length}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<form ng-submit="addTopic()" class="well">
+				<input type="text" ng-model="topicForm.title" placeholder="title"><br>
+				<textarea ng-model="topicForm.description" rows="4" placeholder="description"></textarea><br>
+				<select ng-model="topicForm.category" name="category" id="">
+					<option value="HTML">HTML</option>
+					<option value="JavaScript">JavaScript</option>
+					<option value="MongoDB">MongoDB</option>
+					<option value="SQL">SQL</option>
+					<option value="Other">Other</option>
+				</select><br>
+				<input type="submit" value="Add Topic">
+			</form>
+		</div>
+	</div>
 </div>
-{{hello}}

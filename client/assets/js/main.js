@@ -10,6 +10,14 @@ angular.module('myApp', ['ngRoute'])
     	templateUrl: 'partials/dashboard.html',
     	controller: 'DashboardCtrl'
     })
+    .when('/topic/:topicID', {
+      templateUrl: 'partials/topic.html',
+      controller: 'TopicsCtrl'
+    })
+    .when('/user/:userID', {
+      templateUrl: 'partials/user.html',
+      controller: 'SingleUserCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     })

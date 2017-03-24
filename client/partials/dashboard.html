@@ -1,7 +1,7 @@
 
 <div class="container">
 	<div class="col-xs-2 col-xs-offset-8">
-		<a href="#!/poll/newPoll" class="btn btn-primary">New Poll</a>
+		<a href="#!/newPoll" class="btn btn-primary">New Poll</a>
 	</div>
 	<div class="col-xs-2">
 		<a ng-click="logout()" class="btn btn-primary">Logout</a>
@@ -10,7 +10,7 @@
 		<h1>Welcome, {{user.username}}!</h1>
 	</div>
 	<div class="col-xs-8 col-xs-offset-2 well">
-		<input type="text" placeholder="search..." class="block">
+		<input type="text" placeholder="search..." class="block" ng-model="searchText">
 	</div>
 	<div class="col-xs-8 col-xs-offset-2">
 		<table>
@@ -21,7 +21,7 @@
 				<th>Action</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="poll in polls">
+				<tr ng-repeat="poll in polls | filter:searchText">
 					<td>{{poll._user.username}}</td>
 					<td><a href="#!/poll/{{poll._id}}">{{poll.question}}</a></td>
 					<td>{{poll.createdAt}}</td>

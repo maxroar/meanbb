@@ -18,6 +18,7 @@ angular.module('myApp')
 					$scope.poll = poll;
 				}
 			})
+			
 		}else {
 			$location.url('/');
 		}
@@ -33,6 +34,37 @@ angular.module('myApp')
   	data.userId = $scope.user._id;
 
   	PollFactory.addPoll(data, function(err, polls){
+  		console.log('err', err);
+  		console.log('polls', polls);
+  		$scope.polls = polls;
+  	})
+  }
+
+  $scope.addVote = function(){
+  	console.log($scope.voteForm);
+  	var data = $scope.voteForm;
+
+  	PollFactory.addVote(data, function(err, polls){
+  		console.log('err', err);
+  		console.log('polls', polls);
+  		$scope.polls = polls;
+  	})
+  }
+
+  $scope.newPoll = function(){
+  	console.log('newPoll in pollsCtrl');
+  	PollFactory.newPoll(function(err, polls){
+  		console.log('err');
+  		$scope.polls = polls;
+
+  	})
+  }
+
+  $scope.deletePoll = function(){
+  	var data = $scope.pollForm;
+  	data.userId = $scope.user._id;
+
+  	PollFactory.deletePoll(data, function(err, polls){
   		console.log('err', err);
   		console.log('polls', polls);
   		$scope.polls = polls;

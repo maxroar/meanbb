@@ -4,10 +4,63 @@
 		<h5>posted by: {{poll._user.username}}</h5>
 		<p>{{poll._id}}</p>
 		<div>
-			<form ng-submit="addVote()" class="well">
-				<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
-				<input type="submit" value="Vote">
-			</form>
+			<table>
+				<thead>
+					<th>Option</th>
+					<th>Votes</th>
+					<th>Action</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{poll.options[0]}}</td>
+						<td>{{poll.votes[0]}}</td>
+						<td>
+							<form ng-submit="addVote()" class="well">
+								<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
+								<input type="hidden" name="optionId" ng-model="voteForm.optionId" value="0">
+								<input type="hidden" name="oldVal" ng-model="voteForm.oldVal" value="{{poll.votes[0]}}">
+								<input type="submit" value="Vote">
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>{{poll.options[1]}}</td>
+						<td>{{poll.votes[1]}}</td>
+						<td>
+							<form ng-submit="addVote()" class="well">
+								<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
+								<input type="hidden" name="optionId" ng-model="voteForm.optionId" value="1">
+								<input type="hidden" name="oldVal" ng-model="voteForm.oldVal" value="{{poll.votes[1]}}">
+								<input type="submit" value="Vote">
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>{{poll.options[2]}}</td>
+						<td>{{poll.votes[2]}}</td>
+						<td>
+							<form ng-submit="addVote()" class="well">
+								<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
+								<input type="hidden" name="optionId" ng-model="voteForm.optionId" value="2">
+								<input type="hidden" name="oldVal" ng-model="voteForm.oldVal" value="{{poll.votes[2]}}">
+								<input type="submit" value="Vote">
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>{{poll.options[3]}}</td>
+						<td>{{poll.votes[3]}}</td>
+						<td>
+							<form ng-submit="addVote()" class="well">
+								<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
+								<input type="hidden" name="optionId" ng-model="voteForm.optionId" value="3">
+								<input type="hidden" name="oldVal" ng-model="voteForm.oldVal" value="{{poll.votes[3]}}">
+								<input type="submit" value="Vote">
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

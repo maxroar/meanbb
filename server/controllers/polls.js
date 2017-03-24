@@ -14,6 +14,10 @@ var controller = {
 			})
 	},
 
+	newPoll: function(req, res){
+		console.log('newpoll route');
+	},
+
 	addPoll: function(req, res){
 		console.log(req.body);
 		var userId = req.body.userId;
@@ -38,11 +42,23 @@ var controller = {
 
 	},
 
+	addVote: function(req, res){
+		console.log(req.body);
+
+		var newVal = req.body.oldVal + 1;
+
+		// Poll.findByIdAndUpdate(req.body.pollId, {
+		// 	"$set": {poll.votes[req.body.optionId]: newVal}
+
+		// })
+
+	},
+
 	deletePoll: function(req, res){
 		console.log(req.body);
 		var pollId = req.params.pollId;
 		Poll.remove({_id: pollId}, function(err, user){
-			
+			console.log('delete in polls.js');
 			
 		})
 

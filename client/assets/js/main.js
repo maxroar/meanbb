@@ -10,15 +10,11 @@ angular.module('myApp', ['ngRoute'])
     	templateUrl: 'partials/dashboard.html',
     	controller: 'DashboardCtrl'
     })
-    .when('/poll/:pollID', {
+    .when('/poll/:pollId', {
       templateUrl: 'partials/poll.html',
       controller: 'PollsCtrl'
     })
-    .when('/user/:userID', {
-      templateUrl: 'partials/user.html',
-      controller: 'SingleUserCtrl'
-    })
-    .when('/poll/newPoll', {
+    .when('/newPoll', {
     	templateUrl: 'partials/newPoll.html',
     	controller: 'PollsCtrl'
     })

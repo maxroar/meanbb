@@ -18,7 +18,7 @@ angular.module('myApp')
     $http.post('/api/addPoll', data)
       .then(function(res){
         var data = res.data;
-        callback(null, data.polls)
+        callback(data)
       })
   }
 
@@ -38,8 +38,30 @@ angular.module('myApp')
     $http.get('/api/newPoll')
       .then(function(res){
         var data = res.data;
-        polls = data.polls;
-        callback(null, polls)
+        if(!data.success) {
+          callback(true, null)
+        }else {
+          callback(null, data)
+        }
+      })
+  }
+
+  factory.addVote = function(callback){
+    $http.post('/api/addVote')
+      .then(function(res){
+        var data = res.data;
+        callback(data)
+      })
+  }
+
+  factory.deletePoll = function(pollId, callback){
+    $http.get(`/api/deletePoll/${pollId}`)
+      .then(function(res){
+        if(!data.success){
+          callback(true, null)
+        }else {
+          callback(null, data.poll)
+        }
       })
   }
 

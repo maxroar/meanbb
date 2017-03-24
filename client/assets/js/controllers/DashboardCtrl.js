@@ -1,11 +1,11 @@
 
 angular.module('myApp')
-.controller('DashboardCtrl', ['$scope', 'UserFactory', '$location', 'TopicFactory', function($scope, UserFactory, $location, TopicFactory) {
+.controller('DashboardCtrl', ['$scope', 'UserFactory', '$location', 'PollFactory', function($scope, UserFactory, $location, PollFactory) {
 
 
 	$scope.user = {};
-	$scope.topics = [];
-	$scope.topicForm = {};
+	$scope.polls = [];
+	$scope.pollForm = {};
 
 	UserFactory.getUserSession(function(user){
 		if (user) {
@@ -16,8 +16,8 @@ angular.module('myApp')
 		console.log(user);
 	})
 	
-	TopicFactory.getAllTopics(function(topics){
-		$scope.topics = topics;
+	PollFactory.getAllPolls(function(polls){
+		$scope.polls = polls;
 	})
 
 	$scope.logout = function(){
@@ -29,17 +29,7 @@ angular.module('myApp')
   	})
   }
 
-  $scope.addTopic = function(){
-  	console.log($scope.topicForm);
-  	var data = $scope.topicForm;
-  	data.userId = $scope.user._id;
-
-  	TopicFactory.addTopic(data, function(err, topics){
-  		console.log('err', err);
-  		console.log('topics', topics);
-  		$scope.topics = topics;
-  	})
-  }
+  
 
 
 

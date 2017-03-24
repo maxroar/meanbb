@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-xs-6 div col-xs-offset-3">
+		<h1>{{poll.question}}</h1>
+		<h5>posted by: {{poll._user.username}}</h5>
+		<p>{{poll._id}}</p>
+		<div>
+			<form ng-submit="addVote()" class="well">
+				<input type="hidden" name="pollId" ng-model="voteForm.pollId" value="{{poll._id}}">
+				<input type="submit" value="Vote">
+			</form>
+		</div>
+	</div>
+</div>
